@@ -15,11 +15,7 @@ namespace Engr.Octree.RenderTest
 
             var root = OctreeNode<object>.Filled(Vect3.Zero, 5, 0, new object());
             
-
-            var t = new OctreeNode<object>(Vect3.Zero, 5, 0, root.Split());
-
-            var tree = new Octree<object>(t);
-
+            var tree = new Octree<object>(root.Split());
 
             using (var win = new Window<object>(tree, node => Color.Blue))
             {

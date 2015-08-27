@@ -39,7 +39,7 @@ namespace Engr.Octree.Operations
 
         public override IOctreeNode<T> LeafPartial(IOctreeNode<T> a, IOctreeNode<T> b)
         {
-            return new OctreeNode<T>(a.Center, a.Size, a.Depth, a.Split().Zip(b.Children, Run).ToList());
+            return new OctreeNode<T>(a.Center, a.Size, a.Depth, a.Split().Children.Zip(b.Children, Run).ToList());
         }
 
         public override IOctreeNode<T> PartialEmpty(IOctreeNode<T> a, IOctreeNode<T> b)
@@ -49,7 +49,7 @@ namespace Engr.Octree.Operations
 
         public override IOctreeNode<T> PartialLeaf(IOctreeNode<T> a, IOctreeNode<T> b)
         {
-            return new OctreeNode<T>(a.Center, a.Size, a.Depth, b.Split().Zip(a.Children, Run).ToList());
+            return new OctreeNode<T>(a.Center, a.Size, a.Depth, b.Split().Children.Zip(a.Children, Run).ToList());
         }
 
         public override IOctreeNode<T> PartialPartial(IOctreeNode<T> a, IOctreeNode<T> b)

@@ -64,11 +64,11 @@ namespace Engr.Octree
             return State == NodeState.Partial;
         }
 
-        public IList<IOctreeNode<T>> Split()
+        public IOctreeNode<T> Split()
         {
             var newSize = Size / 2.0;
             var half = Size / 4.0;
-            return new List<IOctreeNode<T>>
+            return new OctreeNode<T>(Center, Size, Depth, new List<IOctreeNode<T>>
             {
                 //top-front-right
                 new OctreeNode<T>(Center + new Vect3(+half, +half, +half),newSize,Depth + 1, Data),
@@ -86,8 +86,7 @@ namespace Engr.Octree
                 new OctreeNode<T>(Center + new Vect3(-half, -half, -half),newSize,Depth + 1, Data),
                 //bottom-front-left
                 new OctreeNode<T>(Center + new Vect3(+half, -half, -half),newSize,Depth + 1, Data)
-            };
-            
+            });
         }
 
         //public IOctreeNode<T> Clone(IList<IOctreeNode<T>> children)

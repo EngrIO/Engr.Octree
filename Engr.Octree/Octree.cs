@@ -66,7 +66,7 @@ namespace Engr.Octree
                 switch (node.State)
                 {
                     case NodeState.Empty:
-                        return new OctreeNode<T>(node.Center, node.Size, node.Depth, node.Split().Select(c => Intersect(c, func, maxDepth, data)).ToList());
+                        return new OctreeNode<T>(node.Center, node.Size, node.Depth, node.Split().Children.Select(c => Intersect(c, func, maxDepth, data)).ToList());
                     case NodeState.Leaf:
                         return node;
                     case NodeState.Partial:

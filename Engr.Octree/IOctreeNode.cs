@@ -16,7 +16,9 @@ namespace Engr.Octree
         bool IsPartial();
         //IOctreeNode<T> Clone(IList<IOctreeNode<T>> children);
 
-        IList<IOctreeNode<T>> Split();
+
+
+        IOctreeNode<T> Split();
 
         NodeState State { get; }
 
